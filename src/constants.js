@@ -42,6 +42,7 @@ export const FAMILIES = {
 };
 
 export const theme = {
+  colors: COLORS,
   weights: WEIGHTS,
   queries: QUERIES,
   families: FAMILIES,

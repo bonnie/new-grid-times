@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
 const MiniStory = ({ id, image, title }) => {
   return (
@@ -27,9 +27,9 @@ const Image = styled.img`
 
 const Title = styled.h3`
   font-size: 1.125rem;
-  font-weight: var(--font-weight-bold);
+  font-weight: ${(props) => props.theme.weights.bold};
   line-height: 1.3;
-  color: var(--color-gray-900);
+  color: ${(props) => props.theme.colors.gray[900]};
 `;
 
 export default MiniStory;

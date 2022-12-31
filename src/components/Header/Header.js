@@ -1,12 +1,10 @@
-import React from 'react';
-import styled from 'styled-components/macro';
-import { Menu, Search, User } from 'react-feather';
+import React from "react";
+import styled from "styled-components/macro";
+import { Menu, Search, User } from "react-feather";
 
-import { QUERIES } from '../../constants';
-
-import MaxWidthWrapper from '../MaxWidthWrapper';
-import Logo from '../Logo';
-import Button from '../Button';
+import MaxWidthWrapper from "../MaxWidthWrapper";
+import Logo from "../Logo";
+import Button from "../Button";
 
 const Header = () => {
   return (
@@ -37,7 +35,7 @@ const Header = () => {
 
 const SuperHeader = styled.div`
   padding: 16px 0;
-  background: var(--color-gray-900);
+  background: ${(props) => props.theme.colors.gray[900]};
   color: white;
 `;
 

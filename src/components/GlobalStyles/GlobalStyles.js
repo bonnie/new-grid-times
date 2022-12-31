@@ -1,6 +1,4 @@
-import { createGlobalStyle } from 'styled-components/macro';
-
-import { COLORS, WEIGHTS, FAMILIES } from '../../constants';
+import { createGlobalStyle } from "styled-components/macro";
 
 const GlobalStyles = createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -48,26 +46,7 @@ table {
 }
 
 /* DESIGN TOKENS */
-html {
-  --color-white: ${COLORS.white};
-  --color-offblack: ${COLORS.offblack};
-  --color-gray-100: ${COLORS.gray[100]};
-  --color-gray-300: ${COLORS.gray[300]};
-  --color-gray-500: ${COLORS.gray[500]};
-  --color-gray-700: ${COLORS.gray[700]};
-  --color-gray-900: ${COLORS.gray[900]};
-  --color-primary: ${COLORS.primary};
-  --color-secondary: ${COLORS.secondary};
-  --color-urgent: ${COLORS.urgent};
 
-  --font-weight-normal: ${WEIGHTS.normal};
-  --font-weight-medium: ${WEIGHTS.medium};
-  --font-weight-bold: ${WEIGHTS.bold};
-
-  --font-family-serif: ${FAMILIES.serif};
-  --font-family-sans-serif: ${FAMILIES.sansSerif};
-  --font-family-logo: ${FAMILIES.logo};
-}
 
 
 /* GLOBAL STYLES */
@@ -100,7 +79,7 @@ html, body, #root {
 }
 
 body {
-  background-color: var(--color-gray-100);
+  background-color: ${(props) => props.theme.colors.gray[100]};
   font-family: 'Crimson Pro', sans-serif;
 }
 

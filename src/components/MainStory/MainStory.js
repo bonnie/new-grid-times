@@ -1,14 +1,7 @@
-import React from 'react';
-import styled from 'styled-components/macro';
+import React from "react";
+import styled from "styled-components/macro";
 
-const MainStory = ({
-  id,
-  title,
-  image,
-  location,
-  abstract,
-  ...delegated
-}) => {
+const MainStory = ({ id, title, image, location, abstract, ...delegated }) => {
   return (
     <Wrapper {...delegated}>
       <a href={`/story/${id}`}>
@@ -24,7 +17,7 @@ const MainStory = ({
 };
 
 const Wrapper = styled.article`
-  color: var(--color-gray-900);
+  color: ${(props) => props.theme.colors.gray[900]};
 `;
 
 const Image = styled.img`
@@ -36,7 +29,7 @@ const Image = styled.img`
 const Heading = styled.h2`
   margin-bottom: 8px;
   font-size: 1.5rem;
-  font-weight: var(--font-weight-bold);
+  font-weight: ${(props) => props.theme.weights.bold};
   line-height: 1.3;
 `;
 
@@ -44,6 +37,14 @@ const Abstract = styled.p`
   font-size: 1rem;
   margin-bottom: 1em;
   white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 8;
+  overflow: hidden;
+
+  @media ${(props) => props.theme.queries.tabletAndUp} {
+    -webkit-line-clamp: 16;
+  }
 `;
 
 const Location = styled.span`
@@ -51,7 +52,7 @@ const Location = styled.span`
 `;
 
 const ReadMore = styled.a`
-  font-weight: var(--font-weight-medium);
+  font-weight: ${(props) => props.theme.weights.medium};
   font-style: italic;
 
   &:hover {

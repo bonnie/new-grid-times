@@ -1,6 +1,5 @@
-import React from 'react';
-import styled from 'styled-components/macro';
-import { QUERIES } from '../../constants';
+import React from "react";
+import styled from "styled-components/macro";
 
 const Advertisement = (props) => {
   return (
@@ -26,11 +25,11 @@ const Prefix = styled.p`
   margin-bottom: 0;
   font-size: 1rem;
   font-style: italic;
-  color: var(--color-gray-700);
+  color: ${(props) => props.theme.colors.gray[700]};
 
   &::before,
   &::after {
-    content: '—';
+    content: "—";
     margin: 0 8px;
   }
 `;
@@ -38,9 +37,9 @@ const Prefix = styled.p`
 const Box = styled.div`
   width: 100%;
   height: 382px;
-  background: var(--color-gray-300);
+  background: ${(props) => props.theme.colors.gray[300]};
 
-  @media ${QUERIES.tabletAndUp} {
+  @media ${(props) => props.theme.queries.tabletAndUp} {
     height: 120px;
   }
 `;

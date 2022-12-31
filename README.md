@@ -26,13 +26,13 @@ Here's the full list of available CSS variables:
 --color-secondary    <-- green
 --color-urgent       <-- red
 
---font-weight-normal
---font-weight-medium
---font-weight-bold
+${props => props.theme.weights.normal
+${props => props.theme.weights.medium
+${props => props.theme.weights.bold
 
---font-family-serif
---font-family-sans-serif
---font-family-logo
+${props => props.theme.families.serif
+${props => props.theme.families.sans-serif
+${props => props.theme.families.logo
 ```
 
 ---

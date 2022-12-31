@@ -1,9 +1,9 @@
-import React from 'react';
-import { Twitter, Facebook } from 'react-feather';
-import styled from 'styled-components/macro';
-import MaxWidthWrapper from '../MaxWidthWrapper';
+import React from "react";
+import { Twitter, Facebook } from "react-feather";
+import styled from "styled-components/macro";
+import MaxWidthWrapper from "../MaxWidthWrapper";
 
-import VisuallyHidden from '../VisuallyHidden';
+import VisuallyHidden from "../VisuallyHidden";
 
 const Footer = () => {
   return (
@@ -25,15 +25,11 @@ const Footer = () => {
           </nav>
           <Social>
             <a href="/">
-              <VisuallyHidden>
-                Visit The Grid Times on Facebook
-              </VisuallyHidden>
+              <VisuallyHidden>Visit The Grid Times on Facebook</VisuallyHidden>
               <Facebook size={20} />
             </a>
             <a href="/">
-              <VisuallyHidden>
-                Visit The Grid Times on Twitter
-              </VisuallyHidden>
+              <VisuallyHidden>Visit The Grid Times on Twitter</VisuallyHidden>
               <Twitter size={20} />
             </a>
           </Social>
@@ -130,9 +126,9 @@ const Footer = () => {
 };
 
 const Wrapper = styled.footer`
-  color: var(--color-white);
-  background: var(--color-gray-900);
-  font-family: var(--font-family-sans-serif);
+  color: ${(props) => props.theme.colors.white};
+  background: ${(props) => props.theme.colors.gray[900]};
+  font-family: ${(props) => props.theme.families["sans-serif"]};
 `;
 
 const TopRow = styled.div`
@@ -140,9 +136,9 @@ const TopRow = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  color: var(--color-gray-300);
+  color: ${(props) => props.theme.colors.gray[300]};
   font-size: 0.875rem;
-  border-bottom: 1px solid var(--color-gray-700);
+  border-bottom: 1px solid ${(props) => props.theme.colors.gray[700]};
   padding: 24px 0;
 `;
 
@@ -174,8 +170,8 @@ const MainNavArea = styled.div`
 
 const MainNavHeading = styled.h2`
   font-size: 1.125rem;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-gray-300);
+  font-weight: ${(props) => props.theme.weights.bold};
+  color: ${(props) => props.theme.colors.gray[300]};
   margin-bottom: 8px;
 `;
 
@@ -186,7 +182,7 @@ const MainNavList = styled.ul`
 `;
 
 const SubfooterWrapper = styled.div`
-  background: var(--color-offblack);
+  background: ${(props) => props.theme.colors.offblack};
   padding: 8px 0px;
   /* Optical alignment */
   padding-bottom: 16px;
@@ -199,15 +195,15 @@ const Subfooter = styled.div`
 `;
 
 const Logo = styled.a`
-  font-family: var(--font-family-logo);
+  font-family: ${(props) => props.theme.families.logo};
   font-size: 2rem;
-  color: var(--color-gray-100);
+  color: ${(props) => props.theme.colors.gray[100]};
 `;
 
 const Disclaimer = styled.p`
   margin-top: -4px;
   font-size: 0.875rem;
-  color: var(--color-gray-500);
+  color: ${(props) => props.theme.colors.gray[500]};
 `;
 
 export default Footer;

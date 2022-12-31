@@ -1,15 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import styled from 'styled-components/macro';
+import styled from "styled-components/macro";
 
 const SectionTitle = ({ children, cornerLink }) => {
   return (
     <Wrapper>
       <Title>{children}</Title>
       {cornerLink && (
-        <CornerLink href={cornerLink.href}>
-          {cornerLink.content}
-        </CornerLink>
+        <CornerLink href={cornerLink.href}>{cornerLink.content}</CornerLink>
       )}
     </Wrapper>
   );
@@ -22,17 +20,17 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h2`
-  color: var(--color-gray-900);
-  font-weight: var(--font-weight-bold);
+  color: ${(props) => props.theme.colors.gray[900]};
+  font-weight: ${(props) => props.theme.weights.bold};
   font-size: 1.5rem;
   margin-bottom: 1rem;
 `;
 
 const CornerLink = styled.a`
   font-size: 0.75rem;
-  color: var(--color-gray-900);
-  font-family: var(--font-family-sans-serif);
-  font-weight: var(--font-weight-bold);
+  color: ${(props) => props.theme.colors.gray[900]};
+  font-family: ${(props) => props.theme.families["sans-serif"]};
+  font-weight: ${(props) => props.theme.weights.bold};
 
   &:hover {
     text-decoration: underline;
