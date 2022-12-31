@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components/macro";
 
+import { COLORS } from "../../constants";
+
 const GlobalStyles = createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -46,7 +48,10 @@ table {
 }
 
 /* DESIGN TOKENS */
-
+html {
+  --story-spacer: 1rem;
+  --story-separator: 1px solid COLORS.gray[300];
+}
 
 
 /* GLOBAL STYLES */

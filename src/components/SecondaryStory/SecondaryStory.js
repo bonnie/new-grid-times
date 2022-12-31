@@ -1,27 +1,21 @@
 import React from "react";
 import styled from "styled-components/macro";
 
+import SeparatedStory from "../SeparatedStory";
+
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
-    <Wrapper href={`/story/${id}`}>
-      <Article>
+    <SeparatedStory href={`/story/${id}`}>
+      <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
         <Abstract>{abstract}</Abstract>
-      </Article>
-    </Wrapper>
+      </Wrapper>
+    </SeparatedStory>
   );
 };
 
-const Wrapper = styled.a`
-  &:not(:first-of-type) {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid ${(props) => props.theme.colors.gray[300]};
-  }
-`;
-
-const Article = styled.article`
+const Wrapper = styled.article`
   display: grid;
   grid-template-areas:
     "image heading"
@@ -53,6 +47,10 @@ const Abstract = styled.p`
   grid-area: abstract;
   font-size: 1rem;
   white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 `;
 
 export default SecondaryStory;

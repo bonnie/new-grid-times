@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components/macro";
 
+import SeparatedStory from "../SeparatedStory";
+
 const OpinionStory = ({ id, title, author, avatar }) => {
   return (
-    <a href={`/story/${id}`}>
+    <SeparatedStory href={`/story/${id}`}>
       <Wrapper>
         <Avatar alt="" src={avatar} />
         <div>
@@ -11,12 +13,20 @@ const OpinionStory = ({ id, title, author, avatar }) => {
           <ArticleTitle>{title}</ArticleTitle>
         </div>
       </Wrapper>
-    </a>
+    </SeparatedStory>
   );
 };
 
 const Wrapper = styled.article`
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
   color: ${(props) => props.theme.colors.gray[900]};
+
+  @media ${(props) => props.theme.queries.tabletOnly} {
+    display: block;
+  }
 `;
 
 const Avatar = styled.img`
@@ -25,6 +35,11 @@ const Avatar = styled.img`
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
+  margin-left: 2rem;
+
+  @media ${(props) => props.theme.queries.tabletOnly} {
+    margin-left: 0;
+  }
 `;
 
 const AuthorName = styled.p`
