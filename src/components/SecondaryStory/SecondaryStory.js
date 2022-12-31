@@ -3,17 +3,25 @@ import styled from "styled-components/macro";
 
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
-    <a href={`/story/${id}`}>
-      <Wrapper>
+    <Wrapper href={`/story/${id}`}>
+      <Article>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
         <Abstract>{abstract}</Abstract>
-      </Wrapper>
-    </a>
+      </Article>
+    </Wrapper>
   );
 };
 
-const Wrapper = styled.article`
+const Wrapper = styled.a`
+  &:not(:first-of-type) {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid ${(props) => props.theme.colors.gray[300]};
+  }
+`;
+
+const Article = styled.article`
   display: grid;
   grid-template-areas:
     "image heading"
@@ -21,10 +29,6 @@ const Wrapper = styled.article`
   gap: 4px 16px;
   grid-template-columns: 120px 1fr;
   color: ${(props) => props.theme.colors.gray[900]};
-
-  &:not(first-of-type) {
-    border-top: 1px solid ${(props) => props.theme.colors.gray[300]};
-  }
 `;
 
 const Image = styled.img`
