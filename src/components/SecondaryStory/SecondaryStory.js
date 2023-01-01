@@ -21,6 +21,11 @@ const Wrapper = styled.article`
   gap: 4px 16px;
   grid-template-columns: 120px 1fr;
   color: ${(props) => props.theme.colors.gray[900]};
+
+  @media ${(props) => props.theme.queries.tabletOnly} {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const Image = styled.img`
