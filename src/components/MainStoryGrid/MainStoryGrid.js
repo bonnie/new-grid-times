@@ -41,7 +41,6 @@ const MainStoryGrid = () => {
 };
 
 const Wrapper = styled.div`
-  --spacer: 1rem;
   --grid-gap: 48px;
   display: grid;
   grid-template-areas:
@@ -63,9 +62,9 @@ const Wrapper = styled.div`
     // since the grid template areas are hard-coded too, I don't
     // feel so bad...
     section:nth-of-type(2) {
-      margin-left: var(--spacer);
-      padding-left: var(--spacer);
-      border-left: 1px solid ${(props) => props.theme.colors.gray[300]};
+      margin-left: var(--grid-border-spacer);
+      padding-left: var(--grid-border-spacer);
+      border-left: var(--grid-border);
     }
   }
   @media ${(props) => props.theme.queries.laptopAndUp} {
@@ -79,15 +78,15 @@ const Wrapper = styled.div`
     // feel so bad...
     section:nth-of-type(1),
     section:nth-of-type(2) {
-      margin-right: var(--spacer);
-      padding-right: var(--spacer);
-      border-right: 1px solid ${(props) => props.theme.colors.gray[300]};
+      margin-right: var(--grid-border-spacer);
+      padding-right: var(--grid-border-spacer);
+      border-right: var(--grid-border);
     }
 
     section:nth-of-type(4) {
-      margin-top: calc(var(--spacer) - var(--grid-gap));
-      padding-top: var(--spacer);
-      border-top: 1px solid ${(props) => props.theme.colors.gray[300]};
+      margin-top: calc(var(--grid-border-spacer) - var(--grid-gap));
+      padding-top: var(--grid-border-spacer);
+      border-top: var(--grid-border);
     }
   }
 `;
@@ -105,9 +104,9 @@ const StoryList = styled.div`
   flex-direction: column;
 
   a:not(:last-of-type) article {
-    margin-bottom: var(--spacer);
-    padding-bottom: var(--spacer);
-    border-bottom: 1px solid ${(props) => props.theme.colors.gray[300]};
+    margin-bottom: var(--grid-border-spacer);
+    padding-bottom: var(--grid-border-spacer);
+    border-bottom: var(--grid-border);
   }
 `;
 
@@ -118,7 +117,7 @@ const OpinionStoryList = styled(StoryList)`
     gap: 1rem;
 
     a:not(:last-of-type) article {
-      --spacer: 0;
+      --grid-border-spacer: 0;
       border-bottom: none;
     }
   }

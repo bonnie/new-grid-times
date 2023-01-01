@@ -16,6 +16,10 @@ const Wrapper = styled.article`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @media ${(props) => props.theme.queries.tabletAndUp} {
+    width: 220px;
+  }
 `;
 
 const Image = styled.img`
