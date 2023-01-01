@@ -35,7 +35,7 @@ const Footer = () => {
           </Social>
         </TopRow>
         <MainNavArea>
-          <nav>
+          <MainNavGroup>
             <MainNavHeading>Discover Content</MainNavHeading>
             <MainNavList>
               <li>
@@ -54,8 +54,8 @@ const Footer = () => {
                 <a href="/oped">Opinion and Editorial</a>
               </li>
             </MainNavList>
-          </nav>
-          <nav>
+          </MainNavGroup>
+          <MainNavGroup>
             <MainNavHeading>Regional Websites</MainNavHeading>
             <MainNavList>
               <li>
@@ -74,8 +74,8 @@ const Footer = () => {
                 <a href="/au">New Grid Australia</a>
               </li>
             </MainNavList>
-          </nav>
-          <nav>
+          </MainNavGroup>
+          <MainNavGroup>
             <MainNavHeading>Careers</MainNavHeading>
             <MainNavList>
               <li>
@@ -88,8 +88,8 @@ const Footer = () => {
                 <a href="/culture">Company Culture</a>
               </li>
             </MainNavList>
-          </nav>
-          <nav>
+          </MainNavGroup>
+          <MainNavGroup>
             <MainNavHeading>Legal and Privacy</MainNavHeading>
             <MainNavList>
               <li>
@@ -108,7 +108,7 @@ const Footer = () => {
                 <a href="/tos">Terms and Conditions</a>
               </li>
             </MainNavList>
-          </nav>
+          </MainNavGroup>
         </MainNavArea>
       </MaxWidthWrapper>
       <SubfooterWrapper>
@@ -140,6 +140,15 @@ const TopRow = styled.div`
   font-size: 0.875rem;
   border-bottom: 1px solid ${(props) => props.theme.colors.gray[700]};
   padding: 24px 0;
+
+  @media ${(props) => props.theme.queries.tabletAndUp} {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    justify-content: flex-end;
+  }
 `;
 
 const Social = styled.div`
@@ -152,6 +161,10 @@ const Social = styled.div`
 
   path {
     stroke-width: 1.5px;
+  }
+
+  @media ${(props) => props.theme.queries.tabletAndUp} {
+    margin-left: 48px;
   }
 `;
 
@@ -166,6 +179,36 @@ const MainNavArea = styled.div`
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
+
+  @media ${(props) => props.theme.queries.tabletAndUp} {
+    text-align: left;
+
+    // world famous grid
+    display: grid;
+    padding: 16px;
+    gap: 48px;
+    grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
+  }
+
+  /* @media ${(props) => props.theme.queries.laptopAndUp} {
+    justify-items: center;
+    justify-content: space-evenly;
+  } */
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
+    justify-content: space-around;
+  }
+`;
+
+const MainNavGroup = styled.div`
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    display: inline;
+    align-self: flex-start;
+    padding: 16px 8px 32px 8px;
+  }
 `;
 
 const MainNavHeading = styled.h2`
@@ -192,6 +235,10 @@ const Subfooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    align-items: flex-start;
+  }
 `;
 
 const Logo = styled.a`
