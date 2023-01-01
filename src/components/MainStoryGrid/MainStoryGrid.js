@@ -27,9 +27,10 @@ const MainStoryGrid = () => {
       <OpinionSection>
         <SectionTitle>Opinion</SectionTitle>
         <OpinionStoryList>
-          {OPINION_STORIES.map((story, index) => (
-            <OpinionStory key={story.id} {...story} />
-          ))}
+          {/* assuming max opinion story count of 4 */}
+          {OPINION_STORIES.map((story, index) =>
+            index < 4 ? <OpinionStory key={story.id} {...story} /> : null
+          )}
         </OpinionStoryList>
       </OpinionSection>
 
@@ -49,54 +50,43 @@ const Wrapper = styled.div`
     "opinion-stories"
     "advertisement";
   gap: var(--grid-gap) 0px;
-  margin-bottom: var(--grid-gap);
+  margin-bottom: 48px;
 
-  @media ${(props) => props.theme.queries.tabletOnly} {
+  @media ${(props) => props.theme.queries.tabletAndUp} {
     grid-template-areas:
       "main-story secondary-stories"
-      "opinion-stories opinion-stories"
-      "advertisement advertisement";
+      "advertisement advertisement"
+      "opinion-stories opinion-stories";
     grid-template-columns: 2fr 1fr;
-
-    // is there a better way than hard-coding where it goes?
-    // since the grid template areas are hard-coded too, I don't
-    // feel so bad...
-    section:nth-of-type(2) {
-      margin-left: var(--grid-border-spacer);
-      padding-left: var(--grid-border-spacer);
-      border-left: var(--grid-border);
-    }
   }
+
   @media ${(props) => props.theme.queries.laptopAndUp} {
+    --grid-gap: 0;
     grid-template-areas:
       "main-story secondary-stories opinion-stories"
       "main-story advertisement advertisement";
-    grid-template-columns: 1fr 1fr 272px;
-
-    // is there a better way than hard-coding where it goes?
-    // since the grid template areas are hard-coded too, I don't
-    // feel so bad...
-    section:nth-of-type(1),
-    section:nth-of-type(2) {
-      margin-right: var(--grid-border-spacer);
-      padding-right: var(--grid-border-spacer);
-      border-right: var(--grid-border);
-    }
-
-    section:nth-of-type(4) {
-      margin-top: calc(var(--grid-border-spacer) - var(--grid-gap));
-      padding-top: var(--grid-border-spacer);
-      border-top: var(--grid-border);
-    }
+    grid-template-columns: 5fr 4fr 3fr;
   }
 `;
 
 const MainStorySection = styled.section`
   grid-area: main-story;
+
+  @media ${(props) => props.theme.queries.tabletAndUp} {
+    margin-right: var(--grid-border-spacer);
+    padding-right: var(--grid-border-spacer);
+    border-right: var(--grid-border);
+  }
 `;
 
 const SecondaryStorySection = styled.section`
   grid-area: secondary-stories;
+
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    margin-right: var(--grid-border-spacer);
+    padding-right: var(--grid-border-spacer);
+    border-right: var(--grid-border);
+  }
 `;
 
 const StoryList = styled.div`
@@ -129,6 +119,12 @@ const OpinionSection = styled.section`
 
 const AdvertisementSection = styled.section`
   grid-area: advertisement;
+
+  @media ${(props) => props.theme.queries.laptopAndUp} {
+    margin-top: var(--grid-border-spacer);
+    padding-top: var(--grid-border-spacer);
+    border-top: var(--grid-border);
+  }
 `;
 
 export default MainStoryGrid;

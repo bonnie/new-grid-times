@@ -54,6 +54,11 @@ const Abstract = styled.p`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+
+  // Josh needed to add this to prevent phantom half-lines at certain sizes
+  //  due to grid stretch
+  //  -- I can't seem to make the phantom half-lines appear tho
+  align-self: start;
 `;
 
 export default SecondaryStory;

@@ -6,6 +6,9 @@ import MaxWidthWrapper from "../MaxWidthWrapper";
 import Logo from "../Logo";
 import Button from "../Button";
 
+// note: Josh hides SuperHeader at laptopAndUp, and repeats buttons
+//   that's is probably a better approach
+
 const Header = () => {
   return (
     <Wrapper>
