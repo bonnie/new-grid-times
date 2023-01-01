@@ -17,6 +17,9 @@ const Wrapper = styled.article`
   flex-direction: column;
   gap: 8px;
 
+  // Josh puts these styles in a wrapper in the SpecialtyStoryGrid
+  //   which makes more sense -- it's not intrisic to the ministory
+  //   AND I wouldn't want to have to flip to another file to see this style
   @media ${(props) => props.theme.queries.tabletAndUp} {
     width: 220px;
   }

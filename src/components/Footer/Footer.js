@@ -190,10 +190,8 @@ const MainNavArea = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(min(180px, 100%), 1fr));
   }
 
-  /* @media ${(props) => props.theme.queries.laptopAndUp} {
-    justify-items: center;
-    justify-content: space-evenly;
-  } */
+  // Josh didn't revert to flex here; instead he uses auto-fit instead
+  //   of auto-fill. Much simpler!
   @media ${(props) => props.theme.queries.laptopAndUp} {
     display: flex;
     flex-direction: row;
