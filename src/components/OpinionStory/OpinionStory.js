@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import SeparatedStory from "../SeparatedStory";
-
 const OpinionStory = ({ id, title, author, avatar }) => {
   return (
-    <SeparatedStory href={`/story/${id}`}>
+    <a type="opinion" href={`/story/${id}`}>
       <Wrapper>
         <Avatar alt="" src={avatar} />
         <div>
@@ -13,7 +11,7 @@ const OpinionStory = ({ id, title, author, avatar }) => {
           <ArticleTitle>{title}</ArticleTitle>
         </div>
       </Wrapper>
-    </SeparatedStory>
+    </a>
   );
 };
 

@@ -1,17 +1,15 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import SeparatedStory from "../SeparatedStory";
-
 const SecondaryStory = ({ id, title, image, location, abstract }) => {
   return (
-    <SeparatedStory href={`/story/${id}`}>
+    <a href={`/story/${id}`}>
       <Wrapper>
         <Image alt={image.alt} src={image.src} />
         <Heading>{title}</Heading>
         <Abstract>{abstract}</Abstract>
       </Wrapper>
-    </SeparatedStory>
+    </a>
   );
 };
 
